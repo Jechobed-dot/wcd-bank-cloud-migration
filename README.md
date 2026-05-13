@@ -36,6 +36,10 @@ It performs two actions:
 {
   "action": "stop"
 }
+
+---
+
+## Other Resources used to carry this out
 IAM Roles
 Admin User: Full access to all AWS services
 Contractor User: Limited access to EC2 instance only
