@@ -36,3 +36,26 @@ It performs two actions:
 {
   "action": "stop"
 }
+IAM Roles
+Admin User: Full access to all AWS services
+Contractor User: Limited access to EC2 instance only
+Auditor User: Read-only access for monitoring and review
+EC2 Instance
+A virtual machine deployed inside a custom VPC
+Used by contractors for work tasks
+Controlled using Lambda automation
+Testing Process
+Deploy Lambda function
+Go to Lambda console → Test tab
+Send "start" or "stop" event
+Check EC2 console to confirm state change
+Tools Used
+AWS EC2
+AWS VPC
+AWS IAM
+AWS Lambda
+AWS CloudWatch
+GitHub
+Conclusion
+
+This project demonstrates a basic cloud migration setup with infrastructure provisioning, identity management, and automation using AWS services. It simulates real-world DevOps practices such as Infrastructure as Code concepts, role-based access control, and event-driven automation.
