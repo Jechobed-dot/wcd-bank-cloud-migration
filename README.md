@@ -39,27 +39,55 @@ It performs two actions:
 
 ---
 
-## Other Resources used to carry this out
-IAM Roles
-Admin User: Full access to all AWS services
-Contractor User: Limited access to EC2 instance only
-Auditor User: Read-only access for monitoring and review
-EC2 Instance
-A virtual machine deployed inside a custom VPC
-Used by contractors for work tasks
-Controlled using Lambda automation
-Testing Process
-Deploy Lambda function
-Go to Lambda console → Test tab
-Send "start" or "stop" event
-Check EC2 console to confirm state change
-Tools Used
-AWS EC2
-AWS VPC
-AWS IAM
-AWS Lambda
-AWS CloudWatch
-GitHub
-Conclusion
+## IAM Roles
 
-This project demonstrates a basic cloud migration setup with infrastructure provisioning, identity management, and automation using AWS services. It simulates real-world DevOps practices such as Infrastructure as Code concepts, role-based access control, and event-driven automation.
+IAM (Identity and Access Management) was used to control access to AWS resources in this project.
+
+### Users Created:
+- **Admin User**
+  - Full administrative access
+  - Used to build and manage all AWS resources
+
+- **Contractor User**
+  - Limited access to EC2
+  - Can only interact with assigned virtual machine
+
+- **Auditor User**
+  - Read-only access
+  - Used for monitoring and reviewing resources
+
+### Roles and Permissions:
+- Admin: `AdministratorAccess`
+- Contractor: Limited EC2 permissions (start/stop/describe)
+- Auditor: `ReadOnlyAccess`
+
+This ensures a secure environment following the principle of least privilege.
+
+---
+
+## EC2 Instance
+
+An EC2 virtual machine was created to simulate a contractor working environment.
+
+### Configuration:
+- Deployed inside a custom VPC
+- Attached to a security group allowing controlled access
+- Assigned an IAM role for AWS service interaction
+
+The EC2 instance represents the core compute resource in this cloud migration project.
+
+---
+
+## Lambda Automation (Big Red Button)
+
+AWS Lambda was used to automate EC2 instance management, acting as the “Big Red Button”.
+
+### Functionality:
+- Start EC2 instance
+- Stop EC2 instance
+
+### Trigger Input Example:
+```json id="9zq2vm"
+{
+  "action": "start"
+}
