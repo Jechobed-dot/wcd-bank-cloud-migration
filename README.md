@@ -27,18 +27,6 @@ It performs two actions:
 - Start EC2 instance
 - Stop EC2 instance
 
-### Example Test Event:
-```json
-{
-  "action": "start"
-}
-
-{
-  "action": "stop"
-}
-
----
-
 ## IAM Roles
 
 IAM (Identity and Access Management) was used to control access to AWS resources in this project.
@@ -90,4 +78,8 @@ AWS Lambda was used to automate EC2 instance management, acting as the “Big Re
 ```json id="9zq2vm"
 {
   "action": "start"
+}
+
+{
+  "action": "stop"
 }
